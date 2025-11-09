@@ -1,8 +1,10 @@
+//flattens 3 arrays into 1
 const flattenArrays = (arr1, arr2 = [], arr3 = []) => {
   const arrays = [arr1, arr2, arr3];
   return arrays.flatMap(array => array);
 };
 
+//displays the text,input,result
 const display = (text, result, array1, array2, array3) => {
   console.log(`
     ${text}
@@ -124,17 +126,14 @@ display("9) Art Workshop Color Variety : ",
   ["blue", "yellow"], ["yellow", "green"], ["blue"]
 );
 
-
 // 10) Library Return Counter
-// Books returned:
-// ["Dune", "Dune", "Foundation", "Dune"]
-// Count how many times “Dune” was returned
 const countBook = (books) => {
   return books.reduce((book, books, count = 0) => {
     return book === "Dune" ? count + 1 : count;
   });
 };
+
 display("10) Library Return Counter : ",
   countBook(["Dune", "Dune", "Foundation", "Dune"]),
   ["Dune", "Dune", "Foundation", "Dune"]
-)
+);
