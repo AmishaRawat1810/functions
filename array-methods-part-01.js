@@ -1,8 +1,13 @@
-const display = (text, result, ...array) => {
+const flattenArrays = (arr1, arr2, arr3) => {
+  const arrays = [arr1, arr2, arr3];
+  return arrays.flatMap(array => array);
+};
+
+const display = (text, result, array1, array2, array3) => {
   console.log(`
     ${text}
     ${"-".repeat(text.length)}
-    Input : ${array}
+    Input : ${flattenArrays(array1, array2, array3)}
     Output : ${result}
     `);
 };
@@ -12,7 +17,8 @@ const countRibbons = (ribbons) => {
   return ribbons.reduce((count, ribbon) => {
     return ribbon === "blue" ? count + 1 : count;
   }, 0);
-}
+};
+
 display("1) Festival Ribbo Count : Blue",
   countRibbons(["red", "blue", "red", "green", "red", "blue"]),
   ["red", "blue", "red", "green", "red", "blue"]
@@ -20,9 +26,9 @@ display("1) Festival Ribbo Count : Blue",
 
 // 2. Stargazing Log
 const stargazingLog = (log1, log2, log3) => {
-  const logs = [log1, log2, log3];
-  return logs.flatMap(log => log);
+  return flattenArrays(log1, log2, log3);
 };
+
 display("2) Stargazing log : ",
   stargazingLog(["Orion", "Leo"], ["Orion", "Gemini"], ["Taurus"]),
   ["Orion", "Leo"], ["Orion", "Gemini"], ["Taurus"]
@@ -34,6 +40,7 @@ const birdSpecies = (birds) => {
     return birds.indexOf(bird) === index;
   });
 };
+
 display("3) Bird species : ",
   birdSpecies(["sparrow", "crow", "sparrow", "eagle", "crow"]),
   ["sparrow", "crow", "sparrow", "eagle", "crow"]
@@ -41,29 +48,40 @@ display("3) Bird species : ",
 
 // 4. Classroom Attendance Check
 const sessionRecord = (record1, record2, record3) => {
-  const records = [record1, record2, record3];
-  return records.flatMap(record => record).filter((student, index, records) => {
+  const records = flattenArrays(record1, record2, record3);
+  return records.filter((student, index, records) => {
     return records.indexOf(student) === index;
   });
 };
+
 display("4) Students attendance record : ",
   sessionRecord(["Asha", "Ravi", "Neel"], ["Ravi"], ["Asha", "Meera"]),
   ["Asha", "Ravi", "Neel"], ["Ravi"], ["Asha", "Meera"]
 );
 
 // 5. Candy Jar Stocking
-// A store logs candy refills like this:
-// [5, 3]
-// [2]
-// [4, 1]
-// Find the total number of candies added.
 const refilledCandies = (log1, log2, log3) => {
-  const logs = [log1, log2, log3];
-  return logs.flatMap(log => log).reduce((prev, curr, index, logs) => {
+  const logs = flattenArrays(log1, log2, log3);
+  return logs.reduce((prev, curr, index, logs) => {
     return prev + curr;
   }, 0);
 };
+
 display("5) Candy Jar Stocking : ",
   refilledCandies([5, 3], [2], [4, 1]),
   [5, 3], [2], [4, 1]
 );
+
+// 6. Music Rehearsal Notes
+const findNote = (musicNote1, musicNote2, musicNote3) => {
+  const musicNotes = flattenArrays(musicNote1, musicNote2, musicNote3);
+  return musicNotes.some((note) => {
+    return note === "do";
+  });
+};
+
+display("6) Music Rehearsal Notes",
+  findNote(["mi", "fa", "so"], ["do", "mi"], ["fa"]),
+  ["mi", "fa", "so"], ["do", "mi"], ["fa"]
+);
+
