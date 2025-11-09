@@ -99,15 +99,13 @@ display("7) Weather Sensor Validation : < 32",
 );
 
 // 8. Fitness Tracker Miles
-// Runner logs:
-// [2, 3, 2],[4],[1, 1]
-// Find the total miles run.
 const runsLog = (log1, log2, log3) => {
   const logs = flattenArrays(log1, log2, log3);
   return logs.reduce((previous, current) => {
     return previous + current;
-  }, 0)
+  }, 0);
 };
+
 display("8) Fitness Tracker Miles : ",
   runsLog([2, 3, 2], [4], [1, 1]),
   [2, 3, 2], [4], [1, 1]
