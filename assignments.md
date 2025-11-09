@@ -613,15 +613,49 @@ Unique spices.
 88. Count unique flavors tasted in a chocolate workshop.
 89. Sum all minutes of meditation logged across sessions.
 90. Identify every unique tool used in a repair workshop.
+    Input : ["hammer", "screwdriver", "hammer", "wrench", "screwdriver"]
+    Result : ["hammer", "screwdriver", "wrench"]
+
 91. Count how many shirts in a laundry batch were listed as “white”.
+    Input : ["white", "blue", "white", "red", "white"]
+    Result : 3
+
 92. Combine all notes written during a meeting into one list.
+    Input : [["note A1", "note A2"], ["note B1"], ["note C1", "note C2"]]	
+    Result : ["note A1", "note A2", "note B1", "note C1", "note C2"]
+
 93. Check if any item in a shipment is marked “fragile”.
+    Input : ["box 1", "handle with care", "fragile", "heavy"]
+    Result : True
+
 94. Verify that all letters written by participants are lowercase.
+    Input : ["this", "isA", "test"]
+    Result : False
+
 95. Reverse a list of moves recorded during a chess game.
+    Input : ["e4", "e5", "Nf3", "Nc6"]
+    Result : ["Nc6", "Nf3", "e5", "e4"]
+
 96. Build a frequency list for musical notes practiced in a session.
+    Input : ["C4", "G4", "A4", "G4", "C4", "C4"]
+    Result : [["C4": 3], ["G4": 2], ["A4": 1]]
+
 97. Count the number of times “error” appears in a log of messages.
+    Input : ["[INFO] user login", "[ERROR] DB fail", "[WARN] low mem", "[ERROR] timeout"]
+    Result : 2
+
 98. Gather all ingredients used in three versions of the same dish.
+    Input : ["flour", "sugar"], ["flour", "milk"], ["eggs", "sugar"]
+    Result : ["flour", "sugar", "flour", "milk", "eggs", "sugar"]
+                  OR
+              ["flour", "sugar", "milk", "eggs"]
+
 99. Check if any student skipped all activity sessions.
+    Input : [[101, 102], [101], []]
+    Result : True
+
 100. Create a list of distinct songs hummed by children on a bus ride.
+    Input : ["wheels on the bus", "wheels on the bus", "row row row" , "jingle bells", "jingle bells"]
+    Result : ["wheels on the bus", "row row row", "jingle bells"]
 
 ---
