@@ -80,8 +80,20 @@ const findNote = (musicNote1, musicNote2, musicNote3) => {
   });
 };
 
-display("6) Music Rehearsal Notes",
+display("6) Music Rehearsal Notes : do",
   findNote(["mi", "fa", "so"], ["do", "mi"], ["fa"]),
   ["mi", "fa", "so"], ["do", "mi"], ["fa"]
 );
 
+// 7. Weather Sensor Validation
+const sensorValidation = (record1, record2, record3) => {
+  const records = flattenArrays(record1, record2, record3);
+  return records.every((record) => {
+    return record < 32;
+  });
+};
+
+display("7) Weather Sensor Validation : < 32",
+  sensorValidation([22, 23], [25, 24, 22], [29]),
+  [22, 23], [25, 24, 22], [29]
+);
