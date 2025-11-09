@@ -1,8 +1,19 @@
 //flattens 3 arrays into 1
 const flattenArrays = (arr1, arr2 = [], arr3 = []) => {
-  const arrays = [arr1, arr2, arr3];
-  return arrays.flatMap(array => array);
+  return [arr1, arr2, arr3].flat();
 };
+
+const findDistinct = (records) => {
+  return records.filter((student, index, records) => {
+    return records.indexOf(student) === index;
+  });
+}
+
+const sumOf = (logs) => {
+  return logs.reduce((previous, current) => {
+    return previous + current;
+  }, 0);
+}
 
 //displays the text,input,result
 const display = (text, result, array1, array2, array3) => {
@@ -38,9 +49,7 @@ display("2) Stargazing log : ",
 
 // 3. Birdwatching Duplicate Removal
 const birdSpecies = (birds) => {
-  return birds.filter((bird, index, birds) => {
-    return birds.indexOf(bird) === index;
-  });
+  return findDistinct(birds);
 };
 
 display("3) Bird species : ",
@@ -51,9 +60,7 @@ display("3) Bird species : ",
 // 4. Classroom Attendance Check
 const sessionRecord = (record1, record2, record3) => {
   const records = flattenArrays(record1, record2, record3);
-  return records.filter((student, index, records) => {
-    return records.indexOf(student) === index;
-  });
+  return findDistinct(records);
 };
 
 display("4) Students attendance record : ",
@@ -64,9 +71,7 @@ display("4) Students attendance record : ",
 // 5. Candy Jar Stocking
 const refilledCandies = (log1, log2, log3) => {
   const logs = flattenArrays(log1, log2, log3);
-  return logs.reduce((prev, curr, index, logs) => {
-    return prev + curr;
-  }, 0);
+  return sumOf(logs);
 };
 
 display("5) Candy Jar Stocking : ",
@@ -103,9 +108,7 @@ display("7) Weather Sensor Validation : < 32",
 // 8. Fitness Tracker Miles
 const runsLog = (log1, log2, log3) => {
   const logs = flattenArrays(log1, log2, log3);
-  return logs.reduce((previous, current) => {
-    return previous + current;
-  }, 0);
+  return sumOf(logs);
 };
 
 display("8) Fitness Tracker Miles : ",
@@ -116,9 +119,7 @@ display("8) Fitness Tracker Miles : ",
 // 9) Art Workshop Color Variety
 const colorsUsed = (session1, session2, session3) => {
   const colors = flattenArrays(session1, session2, session3);
-  return colors.filter((color, index, colors) => {
-    return colors.indexOf(color) === index;
-  });
+  return findDistinct(colors);
 };
 
 display("9) Art Workshop Color Variety : ",
