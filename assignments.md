@@ -11,13 +11,11 @@ They want to know how many **blue** ribbons were cut.
 ### **2. Stargazing Log**
 
 A stargazing club logs visible constellations from each night:
-
 ```
 ["Orion", "Leo"]
 ["Taurus"]
 ["Orion", "Gemini"]
 ```
-
 Combine everyone’s observations into one list of all constellations spotted.
 
 ### **3. Birdwatching Duplicate Removal**
