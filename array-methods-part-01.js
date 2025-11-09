@@ -1,4 +1,4 @@
-const flattenArrays = (arr1, arr2, arr3) => {
+const flattenArrays = (arr1, arr2 = [], arr3 = []) => {
   const arrays = [arr1, arr2, arr3];
   return arrays.flatMap(array => array);
 };
@@ -110,3 +110,31 @@ display("8) Fitness Tracker Miles : ",
   runsLog([2, 3, 2], [4], [1, 1]),
   [2, 3, 2], [4], [1, 1]
 );
+
+// 9) Art Workshop Color Variety
+const colorsUsed = (session1, session2, session3) => {
+  const colors = flattenArrays(session1, session2, session3);
+  return colors.filter((color, index, colors) => {
+    return colors.indexOf(color) === index;
+  });
+};
+
+display("9) Art Workshop Color Variety : ",
+  colorsUsed(["blue", "yellow"], ["yellow", "green"], ["blue"]),
+  ["blue", "yellow"], ["yellow", "green"], ["blue"]
+);
+
+
+// 10) Library Return Counter
+// Books returned:
+// ["Dune", "Dune", "Foundation", "Dune"]
+// Count how many times “Dune” was returned
+const countBook = (books) => {
+  return books.reduce((book, books, count = 0) => {
+    return book === "Dune" ? count + 1 : count;
+  });
+};
+display("10) Library Return Counter : ",
+  countBook(["Dune", "Dune", "Foundation", "Dune"]),
+  ["Dune", "Dune", "Foundation", "Dune"]
+)
