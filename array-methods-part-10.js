@@ -216,3 +216,16 @@ testCode("100) List of distinct songs hummed by children on a bus ride : ",
     "jingle bells"
   ]
 );
+
+// EXTRA : All the words that start with 'a' 
+const startsWithA = (sentences) => {
+  return sentences.flatMap(sentence => sentence.split(" ").filter((word) => {
+    return word[0] === "a" || word[0] === "A";
+  }));
+};
+
+testCode("EXTRA : All the words that start with 'a' : ",
+  startsWithA(['just a car', 'also another car', 'arbitrary car', 'An ice']),
+  ["a", "also", "another", "arbitrary", "An"],
+  ['just a car', 'also another car', 'arbitrary car', 'An ice']
+);

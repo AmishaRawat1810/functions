@@ -155,17 +155,7 @@ testCode("19) Paper Crane Making : ",
   [5, 6], [1], [5]
 );
 
-// ### **20. Fruit Basket Inventory**
-
-// Mixed fruits recorded:
-
-// ```
-// ["apple", "banana"]
-// ["apple"]
-// ["apple", "orange"]
-// ```
-
-// List unique fruits used.
+// 20. Fruit Basket Inventory
 const uniqueFruits = (list1, list2, list3) => {
   return [list1, list2, list3].flatMap(x => x).filter((fruit, index, lists) => {
     return lists.indexOf(fruit) === index;
