@@ -1,22 +1,3 @@
-// flattens 3 arrays into 1
-const flattenArrays = (array1, array2 = [], array3 = []) => {
-  return [array1, array2, array3].flat();
-};
-
-// returns distinct records
-const distinct = (records) => {
-  return records.filter((student, index, records) => {
-    return records.indexOf(student) === index;
-  });
-};
-
-// returns sum of elements
-const sumOf = (logs) => {
-  return logs.reduce((previous, current) => {
-    return previous + current;
-  }, 0);
-};
-
 // checks if deep equal
 const areDeepEqual = function (array1, array2) {
   const areArraysEqual = function (array1, array2) {
@@ -44,11 +25,11 @@ const areDeepEqual = function (array1, array2) {
 }
 
 //displays the text,input,result
-const testCode = (text, result, expected, array1, array2, array3) => {
+const testCode = (text, result, expected, array1, array2 = [], array3 = []) => {
   console.log(`
     ${text}
     ${"-".repeat(text.length)}
-    Input : ${flattenArrays(array1, array2, array3)}
+    Input : ${[array1, array2, array3].flatMap(x => x)}
     Output : ${result}
     PASSED : ${areDeepEqual(result, expected) ? "✅" : "❌"}
 `);
@@ -69,7 +50,7 @@ testCode("1) Festival Ribbo Count : Blue",
 
 // 2. Stargazing Log
 const stargazingLog = (log1, log2, log3) => {
-  return flattenArrays(log1, log2, log3);
+  return [log1, log2, log3].flatMap(arr => arr);;
 };
 
 testCode("2) Stargazing log : ",
@@ -80,7 +61,9 @@ testCode("2) Stargazing log : ",
 
 // 3. Birdwatching Duplicate Removal
 const birdSpecies = (birds) => {
-  return distinct(birds);
+  return birds.filter((bird, index, birds) => {
+    return birds.indexOf(bird) === index;
+  });
 };
 
 testCode("3) Bird species : ",
@@ -91,8 +74,10 @@ testCode("3) Bird species : ",
 
 // 4. Classroom Attendance Check
 const sessionRecord = (record1, record2, record3) => {
-  const records = flattenArrays(record1, record2, record3);
-  return distinct(records);
+  return [record1, record2, record3].flatMap(x => x).filter(
+    (record, index, records) => {
+      return records.indexOf(record) === index;
+    });
 };
 
 testCode("4) Students attendance record : ",
@@ -103,8 +88,9 @@ testCode("4) Students attendance record : ",
 
 // 5. Candy Jar Stocking
 const refilledCandies = (log1, log2, log3) => {
-  const logs = flattenArrays(log1, log2, log3);
-  return sumOf(logs);
+  return [log1, log2, log3].flatMap(arr => arr).reduce((previous, current) => {
+    return previous + current;
+  }, 0);
 };
 
 testCode("5) Candy Jar Stocking : ",
@@ -115,8 +101,8 @@ testCode("5) Candy Jar Stocking : ",
 
 // 6. Music Rehearsal Notes
 const findNote = (musicNote1, musicNote2, musicNote3) => {
-  const musicNotes = flattenArrays(musicNote1, musicNote2, musicNote3);
-  return musicNotes.some((note) => {
+  ;
+  return [musicNote1, musicNote2, musicNote3].flatMap(x => x).some((note) => {
     return note === "do";
   });
 };
@@ -129,8 +115,7 @@ testCode("6) Music Rehearsal Notes : do",
 
 // 7. Weather Sensor Validation
 const sensorValidation = (record1, record2, record3) => {
-  const records = flattenArrays(record1, record2, record3);
-  return records.every((record) => {
+  return [record1, record2, record3].flatMap(arr => arr).every((record) => {
     return record < 32;
   });
 };
@@ -143,8 +128,9 @@ testCode("7) Weather Sensor Validation : < 32",
 
 // 8. Fitness Tracker Miles
 const runsLog = (log1, log2, log3) => {
-  const logs = flattenArrays(log1, log2, log3);
-  return sumOf(logs);
+  return [log1, log2, log3].flatMap(x => x).reduce((previous, current) => {
+    return previous + current;
+  }, 0);
 };
 
 testCode("8) Fitness Tracker Miles : ",
@@ -155,8 +141,10 @@ testCode("8) Fitness Tracker Miles : ",
 
 // 9) Art Workshop Color Variety
 const colorsUsed = (session1, session2, session3) => {
-  const colors = flattenArrays(session1, session2, session3);
-  return distinct(colors);
+  return [session1, session2, session3].flatMap(arr => arr).filter(
+    (record, index, records) => {
+      return records.indexOf(record) === index;
+    });
 };
 
 testCode("9) Art Workshop Color Variety : ",
@@ -167,9 +155,9 @@ testCode("9) Art Workshop Color Variety : ",
 
 // 10) Library Return Counter
 const countBook = (books) => {
-  return books.reduce((book, books, count = 0) => {
+  return books.reduce((count, book) => {
     return book === "Dune" ? count + 1 : count;
-  });
+  }, 0);
 };
 
 testCode("10) Library Return Counter : ",

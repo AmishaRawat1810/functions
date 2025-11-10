@@ -641,7 +641,7 @@ Unique spices.
     Result : [["C4": 3], ["G4": 2], ["A4": 1]]
 
 97. Count the number of times “error” appears in a log of messages.
-    Input : ["[INFO] user login", "[ERROR] DB fail", "[WARN] low mem", "[ERROR] timeout"]
+    Input : [ "INFO: User logged in.", "WARNING: Disk space low.", "ERROR: Failed to connect to database.", "DEBUG: Processing request.","ERROR: Invalid input received.", "INFO: Data saved successfully.", "ERROR: Timeout during API call."];
     Result : 2
 
 98. Gather all ingredients used in three versions of the same dish.
