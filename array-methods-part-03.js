@@ -49,7 +49,6 @@ testCode("21) Classroom Pen Distribution : ",
   [2, 3], [1], [3, 2]
 );
 
-
 // 22. Movie Marathon Titles
 const uniqueMovies = (list1, list2, list3) => {
   return [list1, list2, list3].flatMap(x => x).filter((item, index, lists) => {
@@ -156,17 +155,7 @@ testCode("29) Rainfall Data Check : ",
   [3, -4], [5, 2], [1]
 );
 
-// ### **30. Fruit Stand Weight Totals**
-
-// Weights:
-
-// ```
-// [4, 3]
-// [2]
-// [3, 1]
-// ```
-
-// Compute total weight.
+// 30. Fruit Stand Weight Totals
 const totalWeight = (log1, log2, log3) => {
   return [log1, log2, log3].flatMap(x => x).reduce((previous, current) => {
     return previous + current;
