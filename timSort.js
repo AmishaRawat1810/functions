@@ -62,12 +62,55 @@ console.log(`
   RUN : ${run}`);
 
 //INSERTION SORT ON THE RUN
-const insertionOnRun = (array, run) => {
+const insertionSortOnRun = (array, run) => {
   for (let i = 0; i < array.length; i = i + run + 1) {
     insertionSort(i, array, run);
   }
   return array;
 };
 console.log(`
-  SORT : ${insertionOnRun(array, run)}
+  AFTER INSERTION SORT : ${insertionSortOnRun(array, run)}
   `);
+
+//MERGE SORT
+const mergeSort = (array, left, right) => {
+  if (left >= right) {
+    return [array[left]]; // Return as array
+  }
+  const mid = Math.floor((left + right) / 2);
+  const temp1 = mergeSort(array, left, mid);
+  const temp2 = mergeSort(array, mid + 1, right);
+  return merge(temp1, temp2);
+};
+
+const merge = (array1, array2) => {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < array1.length && j < array2.length) {
+    if (array1[i] <= array2[j]) {
+      result.push(array1[i]);
+      i++;
+    } else {
+      result.push(array2[j]);
+      j++;
+    }
+  }
+  while (i < array1.length) {
+    result.push(array1[i]);
+    i++;
+  }
+
+  while (j < array2.length) {
+    result.push(array2[j]);
+    j++;
+  }
+  return result;
+};
+
+//MERGE SORT ON THE RUN
+console.log(`
+  AFTER MERGESORT : ${mergeSort(array, 0, array.length - 1)}
+  `);
+
+// console.log(mergeSort([1, 4, 3, 5, 2], 0, 4))
